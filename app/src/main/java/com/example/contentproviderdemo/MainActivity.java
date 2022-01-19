@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getContentResolver().registerContentObserver(EmployeesProvider.CONTENT_URI, true, myObserver);
         myObserver = new MyObserver(new Handler());
+        getContentResolver().registerContentObserver(EmployeesProvider.CONTENT_URI, true, myObserver);
         currentName = findViewById(R.id.current_name);
         newName = findViewById(R.id.new_name);
     }
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             resultView.setText("No Records Found");
         }
     }
-̀̀̀
+̀̀
     @SuppressLint("NewApi")
     public class MyObserver extends ContentObserver {
         public MyObserver(Handler handler) {
@@ -84,8 +84,8 @@ public class MainActivity extends AppCompatActivity {
         @SuppressLint("Range")
         @Override
         public void onChange(boolean selfChange) {
-            Log.e("observer triggered", "values updated");
-            showEmployeeName();
+            Log.e("observer triggered", "values added/updated");
+         //   showEmployeeName();
         }
     }
 
